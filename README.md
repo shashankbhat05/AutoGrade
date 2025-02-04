@@ -41,6 +41,4 @@ To run the AutoGrade system locally:
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
 
----
 
-This README provides an overview of your project, explains its core features and benefits, and includes the necessary steps for others to run and contribute to the project. Let me know if you need to add or modify any section!

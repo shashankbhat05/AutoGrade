@@ -1,0 +1,154 @@
+{% extends 'teacherheader.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% block content %}
+<style>
+.notification {
+  color: black;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+</style>
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">New Student</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li>
+              <a href="/teacheraddquestion" class="notification">
+                <span style="color: white; font-weight: 500; font-size: large;">Home</span>
+                <span class="badge" style="position: absolute; top: 2px; right: 3px;">{{cnt}}</span>
+        </a>
+            </li>
+      
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="" style="display: flex;">
+              <!-- {{msg}} -->
+            <form action="/teacheraddstudent" method="post" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="fname" class="form-control" placeholder="First Name" required=""
+                  style="">
+                </div>
+
+                                <div class="col-md-6">
+                  <input type="text" name="lname" class="form-control" placeholder="Last Name" required=""
+                  style="">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="uname" class="form-control" placeholder="Login Name" required=""
+                  style="">
+                </div>
+
+                                <div class="col-md-6">
+                  <input type="password" name="pwd" class="form-control" placeholder="Password" required=""
+                  style="">
+                </div>
+
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required=""
+                  style="">
+                </div>
+                <div class="col-md-6" style="position: relative;">
+                  <select id="department" class="form-control" name="department">
+                    <option value="" disabled selected>Select Department</option> 
+                      {%for dept in departments%}
+                      <option value="{{ dept }}">{{ dept }}</option>
+                      {% endfor %}
+                  </select>
+                  <img src="static/assets/img/bx-caret-down.svg" class="dropdown-icon">
+              </div>
+
+                <div class="col-md-6 "style="position: relative;">
+                            <select class="form-control" name="classname" id="classname" onchange="selectsubjects()">
+                            </select>
+                            <img src="static\assets\img\bx-caret-down.svg" class="dropdown-icon">
+                        </div>
+
+                                <div class="col-md-6 ">
+                  <input type="text" class="form-control" name="phnum" placeholder="Phone Num" required=""
+                  style="" pattern="[6789][0-9]{9}"
+                  title="Phone Num should be 10 digits & starts from 6,7,8,9">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="address" rows="6" placeholder="Address" required=""
+                  style=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <button type="submit" style="border: none; background-color: rgb(104, 104, 234); border-radius: 10px; color: white; width:150px; height:50px;">New Student</button>
+                </div>
+
+              </div>
+              
+            </form>
+            
+            <div style="transform: translate(30%,-10%);">
+              <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExemthcGd5eXF0dHR6ZnhzODZwZTFlZTM4c3luemdlempnd3gxMGdmayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xDCLi52Lfy2DNTkMaA/giphy.gif">
+            </div>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+<script type="text/javascript">
+    select = document.getElementById('classname');
+let classnames = ['SEM3', 'SEM4', 'SEM5', 'SEM6','SEM7' ,'SEM8'];
+for (let i = 0; i < classnames.length; i++) {
+        var opt = document.createElement('option');
+            opt.value = classnames[i];
+            opt.innerHTML = classnames[i];
+            select.appendChild(opt);
+}
+
+let selectDept = document.getElementById('department');
+    let departments = ['CSE', 'ISE', 'ECE', 'EEE'];
+
+    for (let i = 0; i < departments.length; i++) {
+        let opt = document.createElement('option');
+        opt.value = departments[i];
+        opt.innerHTML = departments[i];
+        selectDept.appendChild(opt);
+    }
+</script>
+</script>
+
+{% endblock %}
+</body>
+</html>

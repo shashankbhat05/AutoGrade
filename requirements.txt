@@ -1,0 +1,17 @@
+firebase-admin      #Database
+flask               #Web Application
+
+#Word Checking
+numpy
+transformers
+tensorflow
+huggingface_hub
+torchvision
+torch
+
+#OCR
+Pillow
+pytesseract
+
+#Pdf files
+pypdf

@@ -1,0 +1,228 @@
+{% extends 'adminheader.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% block content %}
+<script type="text/javascript">
+function selectclass()
+{
+
+}
+
+</script>
+<!-- Page Title -->
+<div class="page-title light-background">
+    <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Notify Teacher</h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a href="/adminmainpage">Home</a></li>
+                <li class="current">Notify Teacher</li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
+
+<!-- Contact Section -->
+<section id="contact" class="contact section">
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-8">
+                {{msg}}
+                <form action="/adminnotifyteacher2" method="post" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row gy-4">
+
+                        <div class="col-md-6">
+                            <input type="text" name="teacherid" class="form-control" placeholder="Teacher Id" required=""
+                                   style="" value="{{data.id}}" readonly>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="text" name="fname" class="form-control" placeholder="First Name" required=""
+                                   style=""  value="{{data.FirstName}}" readonly>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="text" name="lname" class="form-control" placeholder="Last Name" required=""
+                                   style=""   value="{{data.LastName}}" readonly>
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <input type="email" class="form-control" name="email" placeholder="Your Email" required=""
+                                   style=""   value="{{data.EmailId}}" readonly>
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <input type="text" class="form-control" name="phnum" placeholder="Phone Num" required=""
+                                   style=""
+                              value="{{data.PhoneNumber}}" readonly>
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <input type="text" name="dept" class="form-control"
+                                   placeholder="Department" required=""
+                                   style=""   value="{{data.Department}}" readonly>
+                        </div>
+
+                        <div class="col-md-6" style="position: relative;">
+                            <select class="form-control" name="classname" id="classname" onchange="selectsubjects()">
+                            </select>
+                            <img src="static\assets\img\bx-caret-down.svg" class="dropdown-icon">
+                        </div>
+
+                        <div class="col-md-6 "style="position: relative;">
+                            <select class="form-control" name="subjectname" id="subjectname">
+                            </select>
+                            <img src="static\assets\img\bx-caret-down.svg" class="dropdown-icon">
+                        </div>
+
+                        <!-- <div class="col-md-12">
+                  <textarea class="form-control" name="address" rows="6" placeholder="Address" required=""
+                            style="">{{data.Address}}</textarea>
+                        </div> -->
+
+                        <div class="col-md-12 text-center">
+                            <button type="submit" style="border: none; background-color: rgb(104, 104, 234); border-radius: 10px; color: white; width:150px; height:50px;">Notify Teacher
+                            </button>
+                            
+                        </div>
+
+                    </div>
+                </form>
+            </div><!-- End Contact Form -->
+
+        </div>
+
+    </div>
+
+</section><!-- /Contact Section -->
+<script type="text/javascript">
+
+let class_data = {{ classnames|tojson }};
+let class1_subjects = {{ class1subjects|tojson }};
+let class2_subjects = {{ class2subjects|tojson }};
+let class3_subjects = {{ class3subjects|tojson }};
+let class4_subjects = {{ class4subjects|tojson }};
+let class5_subjects = {{ class5subjects|tojson }};
+let class6_subjects = {{ class6subjects|tojson }};
+console.log("Class Data : " + class_data);
+console.log("Class1 Subjects : " + class1_subjects);
+console.log("Class2 Subjects : " + class2_subjects);
+console.log("Class3 Subjects : " + class3_subjects);
+console.log("Class4 Subjects : " + class4_subjects);
+console.log("Class5 Subjects : " + class5_subjects);
+console.log("Class6 Subjects : " + class6_subjects);
+/*
+let classnames = ['Class1', 'Class2', 'Class3', 'Class4', 'Class5', 'Class6'];
+let class1subjects = ['Class1Sub1', 'Class1Sub2','Class1Sub3','Class1Sub4','Class1Sub5','Class1Sub6'];
+let class2subjects = ['Class2Sub1', 'Class2Sub2','Class2Sub3','Class2Sub4','Class2Sub5','Class2Sub6'];
+let class3subjects = ['Class3Sub1', 'Class3Sub2','Class3Sub3','Class3Sub4','Class3Sub5','Class3Sub6'];
+let class4subjects = ['Class4Sub1', 'Class4Sub2','Class4Sub3','Class4Sub4','Class4Sub5','Class4Sub6'];
+let class5subjects = ['Class5Sub1', 'Class5Sub2','Class5Sub3','Class5Sub4','Class5Sub5','Class5Sub6'];
+let class6subjects = ['Class6Sub1', 'Class6Sub2','Class6Sub3','Class6Sub4','Class6Sub5','Class6Sub6'];
+*/
+let classnames = class_data.toString().split(",");
+let class1subjects = class1_subjects.toString().split(",");
+let class2subjects = class2_subjects.toString().split(",");
+let class3subjects = class3_subjects.toString().split(",");
+let class4subjects = class4_subjects.toString().split(",");
+let class5subjects = class5_subjects.toString().split(",");
+let class6subjects = class6_subjects.toString().split(",");
+
+select = document.getElementById('classname');
+for (let i = 0; i < classnames.length; i++) {
+        var opt = document.createElement('option');
+            opt.value = classnames[i];
+            opt.innerHTML = classnames[i];
+            select.appendChild(opt);
+}
+
+subject = document.getElementById('subjectname');
+for (let i = 0; i < class1subjects.length; i++) {
+        var opt = document.createElement('option');
+            opt.value = class1subjects[i];
+            opt.innerHTML = class1subjects[i];
+            subject.appendChild(opt);
+}
+
+function selectsubjects()
+{
+    subject = document.getElementById('subjectname');
+    var select = document.getElementById("subjectname");
+var length = select.options.length;
+for (i = length-1; i >= 0; i--) {
+  select.options[i] = null;
+}
+    var pos=0;
+    var obj = document.getElementById('classname').value;
+    for (let i = 0; i < classnames.length; i++) {
+        if(obj == classnames[i]){
+            pos=i;
+            break;
+        }
+    }
+    if(pos == 0)
+    {
+        for (let i = 0; i < class1subjects.length; i++) {
+            var opt = document.createElement('option');
+            opt.value = class1subjects[i];
+            opt.innerHTML = class1subjects[i];
+            subject.appendChild(opt);
+        }
+    }
+    else if(pos == 1)
+    {
+        for (let i = 0; i < class2subjects.length; i++) {
+            var opt = document.createElement('option');
+            opt.value = class2subjects[i];
+            opt.innerHTML = class2subjects[i];
+            subject.appendChild(opt);
+        }
+    }
+    else if(pos == 2)
+    {
+        for (let i = 0; i < class3subjects.length; i++) {
+            var opt = document.createElement('option');
+            opt.value = class3subjects[i];
+            opt.innerHTML = class3subjects[i];
+            subject.appendChild(opt);
+        }
+    }
+    else if(pos == 3)
+    {
+        for (let i = 0; i < class4subjects.length; i++) {
+            var opt = document.createElement('option');
+            opt.value = class4subjects[i];
+            opt.innerHTML = class4subjects[i];
+            subject.appendChild(opt);
+        }
+    }
+    else if(pos == 4)
+    {
+        for (let i = 0; i < class5subjects.length; i++) {
+            var opt = document.createElement('option');
+            opt.value = class5subjects[i];
+            opt.innerHTML = class5subjects[i];
+            subject.appendChild(opt);
+        }
+    }
+    else if(pos == 5)
+    {
+        for (let i = 0; i < class5subjects.length; i++) {
+            var opt = document.createElement('option');
+            opt.value = class6subjects[i];
+            opt.innerHTML = class6subjects[i];
+            subject.appendChild(opt);
+        }
+    }
+}
+
+</script>
+{% endblock %}
+</body>
+</html>

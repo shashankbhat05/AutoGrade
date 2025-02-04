@@ -1,0 +1,101 @@
+{% extends 'teacherheader.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% block content %}
+     <style type="text/css">
+		table, tr, td, th{
+		border:1px solid black;
+		border-collapse:collapse;
+		text-align:center;
+		font-size:18px;
+		}
+		table{
+		width:100%;
+		}
+		th,td{
+		height:50px;
+		}
+	</style>
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Teacher Update Answers</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/teachermainpage">Home</a></li>
+            <li class="current">Teacher Update Answers</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- About 2 Section -->
+    <section id="about-2" class="about-2 section">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-12">
+            <h3 class="pt-0 pt-lg-5">Teacher Update Answers</h3>
+            {%if flag %}
+                 <h3 class="pt-0 pt-lg-5">{{msg}}</h3>
+              {% else %}
+            <div class="tab-content">
+
+              <div class="tab-pane fade show active" id="about-2-tab1">
+                  <form action="/teacherupdateanswers2" method="post" data-aos="fade-up" data-aos-delay="200"
+            enctype="multipart/form-data">
+                <p class="fst-italic">
+                             <table>
+                    <thead>
+                    <tr>
+                        <th>Question Id</th>
+                        <th>Question</th>
+                        <th>Marks</th>
+                        <th>Upload Answer</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.Question}}</td>
+                        <td>{{row.Marks}}</td>
+                        <td>
+<input type="file" name="file" class="form-control" placeholder="Upload File" required=""
+                  style="">
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                </p>
+                      <div class="row gy-4">
+                  <div class="col-md-12">
+                  <br>
+                      <center>
+                  
+                  <button type="submit" style="border: none; background-color: rgb(104, 104, 234); border-radius: 10px; color: white; width:150px; height:50px;">Upload Answers</button>
+                          </center>
+                </div>
+              </div>
+                  </form>
+              </div><!-- End Tab 1 Content -->
+
+            </div>
+{% endif %}
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+{% endblock %}
+</body>
+</html>

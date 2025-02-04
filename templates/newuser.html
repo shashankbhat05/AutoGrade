@@ -1,0 +1,86 @@
+{% extends 'commonheader.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% block content %}
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">New User</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/index">Home</a></li>
+            <li class="current">New User</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+          <div class="col-lg-8">
+              {{msg}}
+            <form action="/newuser" method="post" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="fname" class="form-control" placeholder="First Name" required=""
+                  style="">
+                </div>
+
+                                <div class="col-md-6">
+                  <input type="text" name="lname" class="form-control" placeholder="Last Name" required=""
+                  style="">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="uname" class="form-control" placeholder="Login Name" required=""
+                  style="">
+                </div>
+
+                                <div class="col-md-6">
+                  <input type="password" name="pwd" class="form-control" placeholder="Password" required=""
+                  style="">
+                </div>
+
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required=""
+                  style="">
+                </div>
+
+                                <div class="col-md-6 ">
+                  <input type="text" class="form-control" name="phnum" placeholder="Phone Num" required=""
+                  style="" pattern="[6789][0-9]{9}"
+                  title="Phone Num should be 10 digits & starts from 6,7,8,9">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="address" rows="6" placeholder="Address" required=""
+                  style=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <button type="submit" style="border:1px solid black; width:150px; height:50px;">New User</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+{% endblock %}
+</body>
+</html>

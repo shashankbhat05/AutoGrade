@@ -1,0 +1,154 @@
+{% extends 'teacherheader.html' %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  {% block content %}
+  <style type="text/css">
+    table,
+    tr,
+    td,
+    th {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    th,
+    td {
+      height: 50px;
+    }
+  </style>
+  <style>
+    .notification {
+      color: black;
+      text-decoration: none;
+      padding: 15px 26px;
+      position: relative;
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+
+    .notification .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      padding: 5px 10px;
+      border-radius: 50%;
+      background-color: red;
+      color: white;
+    }
+  </style>
+  <!-- Page Title -->
+  <div class="page-title light-background">
+    <div class="container d-lg-flex justify-content-between align-items-center">
+      <h1 class="mb-2 mb-lg-0">Teacher View Reports</h1>
+      <nav class="breadcrumbs">
+        <ol>
+          <li>
+            <a href="/teacheraddquestion" class="notification">
+              <span style="color: white; font-weight: 500; font-size: large;">Home</span>
+                <span class="badge" style="position: absolute; top: 2px; right: 3px;">{{cnt}}</span>
+            </a>
+          </li>
+         
+        </ol>
+      </nav>
+    </div>
+  </div><!-- End Page Title -->
+
+  <!-- About 2 Section -->
+  <section id="about-2" class="about-2 section">
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-12">
+          <h3 class="pt-0 pt-lg-5">Teacher View Reports</h3>
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="about-2-tab1">
+              <p class="fst-italic">
+              <table>
+                <thead>
+                  <tr>
+                    <th>User Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Department</th>
+                    <th>ClassName</th>
+                    <!-- <th>Email Id</th>
+                    <th>Phone Number</th>
+                    <th>Address</th> -->
+                    <th>View Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in data %}
+                  <tr>
+                    <td>{{row.id}}</td>
+                    <td>{{row.FirstName}}</td>
+                    <td>{{row.LastName}}</td>
+                    <td>{{row.Department}}</td>
+                    <td>{{row.ClassName}}</td>
+                    <!-- <td>{{row.EmailId}}</td>
+                    <td>{{row.PhoneNumber}}</td>
+                    <td>{{row.Address}}</td> -->
+                    <td>
+                      <a href="teacherviewresult?id={{row.id}}">View Result</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- <div id="chartContainer" style="width: 100%; height: 360px;"></div>
+              <script src="static/canvasjs.min.js"></script>
+              </p>
+              <br>
+              <center>
+                <input type="button" value="Print" onclick="window.print()" style="width:250px;height:50px;">
+              </center>
+            </div> -->
+            <!-- End Tab 1 Content -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- /About 2 Section -->
+  <script>
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer", {
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+          text: "Pass-Fail Count"
+        },
+        data: [{
+          type: "pie",
+          legendText: "{label}",
+          yValueFormatString: "#,##0.##",
+          indexLabel: "{label} ({y})",
+          dataPoints: {{ graph_data| safe }}
+      }]
+    });
+    chart.render();
+  }
+  </script>
+  {% endblock %}
+</body>
+
+</html>

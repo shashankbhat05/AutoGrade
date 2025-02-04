@@ -1,0 +1,73 @@
+{% extends 'commonheader.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% block content %}
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">About</h1>
+        <nav class="breadcrumbs">
+          <ol>
+          <ol>
+            <li><a href="/index" style="color: white; font-weight: 500; font-size: large;">Home</a></li>
+            
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- About 2 Section -->
+    <section id="about-2" class="about-2 section">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-5">
+            <div class="about-img">
+              <img src="static/assets/img/ab_1.jpg" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <h3 class="pt-0 pt-lg-5">About the project.</h3>
+
+
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <p class="fst-italic">
+                AutoGrade is an intelligent and automated examination evaluation system designed to streamline the grading process for educational institutions. By leveraging Optical Character Recognition (OCR) and Natural Language Processing (NLP), AutoGrade efficiently evaluates answer scripts, ensuring accurate and consistent assessments.
+              </p>
+            
+              <p>
+                With its user-friendly interface, AutoGrade enables teachers to easily upload questions, model answers, and student responses. The system then processes the data to generate precise and unbiased results. Additionally, the platform provides insightful analytics that allows educators to analyze performance trends, offering valuable insights into student progress.
+              </p>
+            
+              <p>
+                By eliminating manual errors, enhancing grading efficiency, and transforming the traditional evaluation process, AutoGrade delivers a seamless, technology-driven experience. The platform uses advanced algorithms to compare image features with stored glyph features, selecting the closest match for highly accurate results.
+              </p>
+            </div>
+            
+
+                
+                 
+              <!-- End Tab 1 Content -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About 2 Section -->
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,73 @@
+{% extends 'userheader.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% block content %}
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Student Home Page</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/usermainpage" style="color: white; font-weight: 500; font-size: large;">Home</a></li>
+            
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <section id="about-2" class="about-2 section">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-5">
+            <div class="about-img">
+              <img src="static/assets/img/s2.jpg" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <h3 class="pt-0 pt-lg-5">Welcome to AutoGrade Student Portal.</h3>
+
+
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+
+              <div class="tab-pane fade show active" id="about-2-tab1">
+
+                
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>View your results: Access detailed, accurate, and consistent grades based on the evaluation of your answers.</h4>
+                </div>
+              
+
+                <div class="d-flex align-items-center mt-4">
+                  <i class="bi bi-check2"></i>
+                  <h4>Track your progress: Stay informed with performance insights and trends across subjects</h4>
+                </div>
+               
+
+              </div>
+              <!-- End Tab 1 Content -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About 2 Section -->
+
+{% endblock %}
+</body>
+</html>

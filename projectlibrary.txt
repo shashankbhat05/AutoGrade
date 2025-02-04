@@ -1,0 +1,12 @@
+firebase-admin
+flask
+numpy
+transformers
+tensorflow
+huggingface_hub
+torchvision
+torch
+Pillow
+pytesseract
+pypdf
+tensorflow_hub

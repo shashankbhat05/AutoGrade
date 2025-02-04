@@ -1,0 +1,118 @@
+{% extends 'teacherheader.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% block content %}
+     <style type="text/css">
+		table, tr, td, th{
+		border:1px solid black;
+		border-collapse:collapse;
+		text-align:center;
+		font-size:18px;
+		}
+		table{
+		width:100%;
+		}
+		th,td{
+		height:50px;
+		}
+	</style>
+<style>
+.notification {
+  color: black;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+/* ... */
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+</style>
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Teacher View Questions</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li>
+              <a href="/teacheraddquestion" class="notification">
+  <span>Home</span>
+  <span class="badge">{{cnt}}</span>
+</a>
+            </li>
+            <li class="current">Teacher View Questions</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- About 2 Section -->
+    <section id="about-2" class="about-2 section">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-12">
+            <h3 class="pt-0 pt-lg-5">Teacher View Questions</h3>
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="about-2-tab1">
+                <p class="fst-italic">
+                             <table>
+                    <thead>
+                    <tr>
+                        <th>Question Id</th>
+                        <th>Question</th>
+                        <th>Marks</th>
+                        <th>Department</th>
+                        <th>Answer</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.Question}}</td>
+                        <td>{{row.Marks}}</td>
+                        <td>{{row.Department}}</td>
+                        <td>
+                            {%if row.Status == "Updated" %}
+<a href="static/uploads/{{row.FileName}}" target="_blank">View Answer</a>
+                            {%else%}
+                            Not Updated
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                </p>
+              </div><!-- End Tab 1 Content -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About 2 Section -->
+
+{% endblock %}
+</body>
+</html>

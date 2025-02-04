@@ -1,6 +1,3 @@
-Here's a concise and effective README description for your **AutoGrade** project:
-
----
 
 # AutoGrade - Automated Grading System
 
@@ -31,7 +28,7 @@ To run the AutoGrade system locally:
 3. Set up Firebase and update the credentials in the configuration file.
 4. Run the Flask server:
    ```bash
-   python app.py
+   python main.py
    ```
 
 ## Technologies Used

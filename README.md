@@ -30,6 +30,7 @@ To run the AutoGrade system locally:
    ```bash
    python main.py
    ```
+5. Installing tesseractocr.exe file compulsory and should be stored in C drive
 
 ## Technologies Used
 - **Python** for backend processing
